@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  margin: 0;
+  background: #000;
+  color: white;
+}
+
+.loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5em;
+  font-family:"DM Sans", sans-serif;
+
+}
+
+.mainBodyContent{
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.menu{
+  display: flex;
+  height:5%;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  font-size: 1.2em;
+  padding: 0.4em 1.4em ;
+  text-align: justify;
+  justify-content: space-between;
+  width: auto;
+  font-family:"DM Sans", sans-serif;
+}
+
+.header{
+  padding-right: 20px;
+  color: rgb(163, 163, 163);
+}
+
+.menu-left{
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+.menu-book-title{
+  width: 100%;
+}
+
+.menu-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.25rem;
+  align-self: stretch;
+}
+
+.main{
+  display: flex;
+  width: auto;
+  height: 95%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.4em 1.8em ;
+  font-family: "Space Mono", "DM Sans", sans-serif;
+}
+
+.main-content-section{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.main-viz{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5625rem;
+  height:fit-content;
+  align-self: stretch;
+  height: 95%;
+}
+
+.main-viz-container{
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  gap: 15px;
+  
+}
+
+.btns{
+  display: flex;
+  padding: 0.9375rem;
+  flex-direction: row;
+  align-self: stretch;
+  border-top: 0.2px solid #FFF;
+  border-bottom: 0.2px solid #FFF;
+  width: auto;
+  gap: 20px;
+
+}
+
+.button-container{
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.875rem;
+  align-self: stretch;
+  flex-wrap: wrap;
+
+}
+
+.main-text-container{
+  display: flex;
+  padding-bottom: 0.9375rem;
+  align-items: center;
+  gap: 1.0625rem;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.sub-container{
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  cursor:crosshair;
+  flex-direction: column;
+  color: white;
+  
+}
+
+.sub-container :hover{
+  background: rgb(100, 100, 100);
+  color: rgb(255, 255, 255);
+}
+
+.sec-viz-container{
+  display: flex;
+  padding: 0.5rem 0rem;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.chartContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: 100%;
+  font-size: 0.6em;
+}
+
+.count-display{
+  display: flex;
+  align-items: flex-start;
+  width: 0px;
+  flex: 1 0 0;
+  align-self: stretch;
+  justify-content: space-around
+}
+
+button{
+  font-family: "Space Mono", "DM Sans", sans-serif;
+  font-size: 0.6em;
+}
+
+button :hover{
+  background: white;
+  color:black;
+  font-size: 0.6em;
+}
+
+.invisitage{
+  border: solid white 1em;
+}
+
+.allBtns{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.popUpDiv{
+  display: flex;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: auto;
+  width: auto;
+  font-size: 0.9em;
+}
+
