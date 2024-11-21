@@ -10,7 +10,7 @@ body {
 }
 
 .mainBodyContent{
-  height: 100vh;
+  height: 40vh;
   width: 100vw;
   overflow: scroll;
   padding: 20px;
@@ -27,4 +27,14 @@ body {
 
 }
 
+.timeline{
+  align-self: center;
+  width: 70%;
+}
+.plot-d6a7b5{
+  width: 100% !important;
+}
 
+/* text{
+  display: none !important;
+} */
