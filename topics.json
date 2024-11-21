@@ -1,0 +1,606 @@
+[
+    {
+        "word": "government",
+        "count": 6487
+    },
+    {
+        "word": "politics",
+        "count": 6226
+    },
+    {
+        "word": "history",
+        "count": 5673
+    },
+    {
+        "word": "political",
+        "count": 2726
+    },
+    {
+        "word": "aspects",
+        "count": 2112
+    },
+    {
+        "word": "social",
+        "count": 1964
+    },
+    {
+        "word": "relations",
+        "count": 1502
+    },
+    {
+        "word": "conditions",
+        "count": 1328
+    },
+    {
+        "word": "african",
+        "count": 952
+    },
+    {
+        "word": "americans",
+        "count": 841
+    },
+    {
+        "word": "art",
+        "count": 818
+    },
+    {
+        "word": "economic",
+        "count": 692
+    },
+    {
+        "word": "race",
+        "count": 526
+    },
+    {
+        "word": "american",
+        "count": 460
+    },
+    {
+        "word": "politique",
+        "count": 445
+    },
+    {
+        "word": "life",
+        "count": 438
+    },
+    {
+        "word": "activity",
+        "count": 418
+    },
+    {
+        "word": "policy",
+        "count": 392
+    },
+    {
+        "word": "women",
+        "count": 386
+    },
+    {
+        "word": "in",
+        "count": 377
+    },
+    {
+        "word": "rights",
+        "count": 368
+    },
+    {
+        "word": "indians",
+        "count": 368
+    },
+    {
+        "word": "et",
+        "count": 366
+    },
+    {
+        "word": "culture",
+        "count": 346
+    },
+    {
+        "word": "civil",
+        "count": 327
+    },
+    {
+        "word": "of",
+        "count": 325
+    },
+    {
+        "word": "ethnic",
+        "count": 316
+    },
+    {
+        "word": "gouvernement",
+        "count": 310
+    },
+    {
+        "word": "foreign",
+        "count": 278
+    },
+    {
+        "word": "customs",
+        "count": 278
+    },
+    {
+        "word": "war",
+        "count": 273
+    },
+    {
+        "word": "movements",
+        "count": 257
+    },
+    {
+        "word": "histoire",
+        "count": 247
+    },
+    {
+        "word": "presidents",
+        "count": 228
+    },
+    {
+        "word": "etc",
+        "count": 198
+    },
+    {
+        "word": "public",
+        "count": 196
+    },
+    {
+        "word": "identity",
+        "count": 186
+    },
+    {
+        "word": "state",
+        "count": 185
+    },
+    {
+        "word": "science",
+        "count": 184
+    },
+    {
+        "word": "literature",
+        "count": 178
+    },
+    {
+        "word": "people",
+        "count": 167
+    },
+    {
+        "word": "colonies",
+        "count": 165
+    },
+    {
+        "word": "national",
+        "count": 165
+    },
+    {
+        "word": "arts",
+        "count": 162
+    },
+    {
+        "word": "civilization",
+        "count": 156
+    },
+    {
+        "word": "antiquities",
+        "count": 154
+    },
+    {
+        "word": "world",
+        "count": 151
+    },
+    {
+        "word": "america",
+        "count": 151
+    },
+    {
+        "word": "land",
+        "count": 150
+    },
+    {
+        "word": "peoples",
+        "count": 146
+    },
+    {
+        "word": "indigenous",
+        "count": 142
+    },
+    {
+        "word": "nationalism",
+        "count": 142
+    },
+    {
+        "word": "parties",
+        "count": 140
+    },
+    {
+        "word": "indian",
+        "count": 136
+    },
+    {
+        "word": "environmental",
+        "count": 134
+    },
+    {
+        "word": "mayas",
+        "count": 131
+    },
+    {
+        "word": "election",
+        "count": 130
+    },
+    {
+        "word": "labor",
+        "count": 128
+    },
+    {
+        "word": "cultural",
+        "count": 125
+    },
+    {
+        "word": "religion",
+        "count": 124
+    },
+    {
+        "word": "society",
+        "count": 123
+    },
+    {
+        "word": "slavery",
+        "count": 122
+    },
+    {
+        "word": "archaeology",
+        "count": 120
+    },
+    {
+        "word": "black",
+        "count": 119
+    },
+    {
+        "word": "museums",
+        "count": 117
+    },
+    {
+        "word": "status",
+        "count": 117
+    },
+    {
+        "word": "power",
+        "count": 117
+    },
+    {
+        "word": "legal",
+        "count": 112
+    },
+    {
+        "word": "laws",
+        "count": 111
+    },
+    {
+        "word": "intellectual",
+        "count": 109
+    },
+    {
+        "word": "mexican",
+        "count": 106
+    },
+    {
+        "word": "law",
+        "count": 105
+    },
+    {
+        "word": "criticism",
+        "count": 105
+    },
+    {
+        "word": "states",
+        "count": 105
+    },
+    {
+        "word": "tenure",
+        "count": 102
+    },
+    {
+        "word": "administration",
+        "count": 102
+    },
+    {
+        "word": "cartoons",
+        "count": 101
+    },
+    {
+        "word": "sciences",
+        "count": 100
+    },
+    {
+        "word": "travel",
+        "count": 100
+    },
+    {
+        "word": "rulers",
+        "count": 100
+    },
+    {
+        "word": "opinion",
+        "count": 100
+    },
+    {
+        "word": "kings",
+        "count": 99
+    },
+    {
+        "word": "music",
+        "count": 99
+    },
+    {
+        "word": "north",
+        "count": 99
+    },
+    {
+        "word": "human",
+        "count": 97
+    },
+    {
+        "word": "military",
+        "count": 96
+    },
+    {
+        "word": "biography",
+        "count": 95
+    },
+    {
+        "word": "architecture",
+        "count": 95
+    },
+    {
+        "word": "philosophy",
+        "count": 92
+    },
+    {
+        "word": "aspect",
+        "count": 91
+    },
+    {
+        "word": "sources",
+        "count": 90
+    },
+    {
+        "word": "democracy",
+        "count": 88
+    },
+    {
+        "word": "description",
+        "count": 87
+    },
+    {
+        "word": "united",
+        "count": 87
+    },
+    {
+        "word": "class",
+        "count": 84
+    },
+    {
+        "word": "popular",
+        "count": 83
+    },
+    {
+        "word": "south",
+        "count": 82
+    },
+    {
+        "word": "activists",
+        "count": 80
+    },
+    {
+        "word": "racism",
+        "count": 80
+    },
+    {
+        "word": "causes",
+        "count": 78
+    },
+    {
+        "word": "constitutional",
+        "count": 76
+    },
+    {
+        "word": "pictorial",
+        "count": 76
+    },
+    {
+        "word": "mass",
+        "count": 76
+    },
+    {
+        "word": "media",
+        "count": 75
+    },
+    {
+        "word": "caricatures",
+        "count": 74
+    },
+    {
+        "word": "hispanic",
+        "count": 73
+    },
+    {
+        "word": "ame",
+        "count": 73
+    },
+    {
+        "word": "self",
+        "count": 71
+    },
+    {
+        "word": "influence",
+        "count": 71
+    },
+    {
+        "word": "historiography",
+        "count": 71
+    },
+    {
+        "word": "education",
+        "count": 71
+    },
+    {
+        "word": "suffrage",
+        "count": 71
+    },
+    {
+        "word": "movement",
+        "count": 70
+    },
+    {
+        "word": "participation",
+        "count": 69
+    },
+    {
+        "word": "the",
+        "count": 67
+    },
+    {
+        "word": "industry",
+        "count": 65
+    },
+    {
+        "word": "determination",
+        "count": 65
+    },
+    {
+        "word": "humor",
+        "count": 65
+    },
+    {
+        "word": "incas",
+        "count": 64
+    },
+    {
+        "word": "development",
+        "count": 64
+    },
+    {
+        "word": "conflict",
+        "count": 64
+    },
+    {
+        "word": "anthropology",
+        "count": 63
+    },
+    {
+        "word": "reconstruction",
+        "count": 63
+    },
+    {
+        "word": "international",
+        "count": 63
+    },
+    {
+        "word": "wit",
+        "count": 62
+    },
+    {
+        "word": "trade",
+        "count": 61
+    },
+    {
+        "word": "ethnology",
+        "count": 61
+    },
+    {
+        "word": "new",
+        "count": 61
+    },
+    {
+        "word": "working",
+        "count": 60
+    },
+    {
+        "word": "motion",
+        "count": 60
+    },
+    {
+        "word": "language",
+        "count": 59
+    },
+    {
+        "word": "conservation",
+        "count": 58
+    },
+    {
+        "word": "change",
+        "count": 57
+    },
+    {
+        "word": "studies",
+        "count": 56
+    },
+    {
+        "word": "treatment",
+        "count": 55
+    },
+    {
+        "word": "agriculture",
+        "count": 54
+    },
+    {
+        "word": "characteristics",
+        "count": 54
+    },
+    {
+        "word": "resources",
+        "count": 53
+    },
+    {
+        "word": "health",
+        "count": 53
+    },
+    {
+        "word": "deal",
+        "count": 53
+    },
+    {
+        "word": "elections",
+        "count": 52
+    },
+    {
+        "word": "press",
+        "count": 52
+    },
+    {
+        "word": "bibliography",
+        "count": 51
+    },
+    {
+        "word": "unions",
+        "count": 51
+    },
+    {
+        "word": "pictures",
+        "count": 51
+    },
+    {
+        "word": "violence",
+        "count": 51
+    },
+    {
+        "word": "painting",
+        "count": 50
+    },
+    {
+        "word": "imperialism",
+        "count": 49
+    },
+    {
+        "word": "modern",
+        "count": 49
+    },
+    {
+        "word": "moral",
+        "count": 49
+    },
+    {
+        "word": "religious",
+        "count": 49
+    }
+]
