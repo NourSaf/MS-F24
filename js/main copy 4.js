@@ -165,8 +165,54 @@ const topics_year = d3.rollup(data,
   (d) => d.bookYear,
 )
 
+// const timelineSvg = d3.select(".timeline")
+//   .append("svg")
+//   .attr("width", 800)
+//   .attr("height", 400);
+
+// const xScale = d3.scaleBand()
+//   .domain(Array.from(topics_year.keys()))
+//   .range([0, 1000])
+//   .padding(0.1);
+
+// const yScale = d3.scaleLinear()
+//   .domain([0, d3.max(Array.from(topics_year.values()))])
+//   .range([400, 0]);
+
+// timelineSvg.append("g")
+//   .attr("transform", "translate(0, 380)")
+//   .call(d3.axisBottom(xScale).tickFormat(d3.format("d")));
+
+// timelineSvg.append("g")
+//   .attr("transform", "translate(20, 0)")
+//   .call(d3.axisLeft(yScale));
+
+// timelineSvg.selectAll(".bar")
+//   .data(Array.from(topics_year.entries()))
+//   .enter()
+//   .append("rect")
+//   .attr("class", "bar")
+//   .attr("x", d => xScale(d[0]))
+//   .attr("y", d => yScale(d[1]))
+//   .attr("width", xScale.bandwidth())
+//   .attr("height", d => 400 - yScale(d[1]))
+//   .attr("fill", "#69b3a2");
 
 console.log("Topic year",topics_year)
+const plotData = Array.from(topics_year.entries()).map(([year, count]) => ({ year, count }));
+
+const plot = Plot.plot({
+  grid: false,
+  inset: 10,
+  color: { legend: false },
+  marks: [
+    // Plot.frame(),
+    Plot.dot(plotData, { x: "year", y: "count", stroke: "count" })
+  ]
+});
+
+const timeline_div = document.querySelector(".timeline");
+timeline_div.appendChild(plot);
 
 const legendDiv = d3.select('.legend')
 const legend = legendDiv.append("div").attr("class", "legend");
@@ -187,6 +233,26 @@ const legend = legendDiv.append("div").attr("class", "legend");
     legendItem.append("span").text(category);
   });
 
+const plotData_2 = Object.entries(categorizedTopics).flatMap(([category, words]) => 
+  words.map(({ word, count }) => ({ category, word, count }))
+).sort((a, b) => b.count - a.count).slice(0,20);
+
+const plot_2 = Plot.plot({
+  grid: true,
+  x: { label: "Word" },
+  y: { label: "Count" },
+  symbol: { legend: true },
+  marks: [
+    Plot.dot(plotData_2, { x: "word", y: "count", stroke: "category", symbol: "category" })
+  ],
+  style: {
+    fontFamily: "Mono",
+    fontSize: "5px"
+  }
+});
+
+const timeline_div_2 = document.querySelector(".timeline");
+timeline_div.appendChild(plot_2)
 
 const donChart_width  = 150;
 const donChart_height = 150;
