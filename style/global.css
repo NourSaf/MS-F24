@@ -10,11 +10,12 @@ body {
 }
 
 .mainBodyContent{
-  height: 40vh;
+  height: 70vh;
   width: 100vw;
   overflow: scroll;
   padding: 20px;
 }
+
 .legend{
   font-family:"DM Sans", sans-serif;
   font-size: 12px;
@@ -23,10 +24,17 @@ body {
   gap: 10px;
   padding: 10px;
   justify-content: space-evenly
-
-
 }
 
+
+
+.pieChartContainer{
+  display: flex;
+  flex-direction: row;
+}
+.tooltip-container{
+  font-family:"DM Sans", sans-serif;
+}
 .timeline{
   align-self: center;
   width: 70%;

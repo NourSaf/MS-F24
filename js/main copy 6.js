@@ -3,49 +3,6 @@ import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm"
 const data = await d3.json('./myData.json');
 console.log(data);
 
-let state = {
-  data: [],
-  filters: {
-    menu: [],
-    checked: [],
-  },
-  sizeBy: {
-    menu: [PETAL_LENGTH, PETAL_WIDTH, SEPAL_LENGTH, SEPAL_WIDTH],
-    selected: PETAL_LENGTH,
-  },
-  tooltip: {
-    value: "",
-    visible: false,
-    coordinates: [0, 0],
-  },
-  // dimensions: [window.innerWidth, window.innerHeight],
-};
-
-// initializing these globally will be useful later
-let xScale, yScale, colorScale;
-
-async function dataLoad() {
-  // we can set up our layout before we have data
-  initializeLayout();
-  const data = await d3.json("./iris_json.json");
-
-  // once data is on state, we can access it from any other function because state is a global variable
-  
-  // we also populate our checkboxes with values from the data
-  const checkboxValues = Array.from(new Set(data.map(d => d[CLASS])));
-
-  // copy the data into the state variable, add a unique ID for each object and add the filters
-  setState({
-    data: data.map((d, i) => ({
-      ...d,
-      id: d[CLASS] + "_" + i, // each object should have a unique ID
-    })),
-    filters: {
-      menu: checkboxValues,
-      checked: checkboxValues,
-    },
-  });
-}
 
 
 const categories = {
@@ -76,7 +33,7 @@ topics_category.forEach(({ word, count }) => {
 });
 console.log("this is my cat topic",categorizedTopics);
 
-colorScale = d3.scaleOrdinal(["#6e40aa","#bf3caf","#fe4b83","#ff7847","#e2b72f","#aff05b","#52f667","#1ddfa3","#23abd8","#4c6edb","#6e40aa"]);
+const colorScale = d3.scaleOrdinal(["#6e40aa","#bf3caf","#fe4b83","#ff7847","#e2b72f","#aff05b","#52f667","#1ddfa3","#23abd8","#4c6edb","#6e40aa"]);
 
 const categoryColors = {};
 Object.keys(categories).forEach((category, index) => {
@@ -84,7 +41,7 @@ Object.keys(categories).forEach((category, index) => {
 });
 console.log("This is each category color",categoryColors);
 
-data.slice(0, 20).forEach(item => {
+data.slice(0, 2200).forEach(item => {
   const topics = item.topic;
 
   let newPhrase = [];
