@@ -174,6 +174,7 @@ const legend = legendDiv.append("div").attr("class", "legend");
     legendItem.append("span").text(category);
   });
 
+  
 
 //Donut Chart
 const donChart_width  = 150;

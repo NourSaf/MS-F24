@@ -3,7 +3,7 @@
 // by convention, constants in JS have UPPERCASE names
 
 const CLASS = "class";
-const PETAL_LENGTH = "petal length";
+const PETAL_LENGTH = "petallength";
 const PETAL_WIDTH =  "petalwidth";
 const SEPAL_LENGTH = "sepallength";
 const SEPAL_WIDTH = "sepalwidth";
