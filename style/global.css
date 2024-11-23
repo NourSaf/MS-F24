@@ -9,7 +9,7 @@ body {
 
 }
 
-.mainBodyContent{
+.mainVizContent{
   height: 70vh;
   width: 100vw;
   overflow: scroll;
@@ -26,23 +26,3 @@ body {
   justify-content: space-evenly
 }
 
-
-
-.pieChartContainer{
-  display: flex;
-  flex-direction: row;
-}
-.tooltip-container{
-  font-family:"DM Sans", sans-serif;
-}
-.timeline{
-  align-self: center;
-  width: 70%;
-}
-.plot-d6a7b5{
-  width: 100% !important;
-}
-
-/* text{
-  display: none !important;
-} */
