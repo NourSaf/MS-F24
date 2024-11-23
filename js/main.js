@@ -102,7 +102,7 @@ console.log("This is each category color",categoryColors);
 
 
 function draw(){
-data.slice(0, 20).forEach(item => {
+data.slice(0, 2000).forEach(item => {
   const topics = item.topic;
   let newPhrase = [];
   topics.forEach(topic => {
@@ -137,7 +137,6 @@ data.slice(0, 20).forEach(item => {
       }
     }
   });
-
 
   const mainContainer = d3.select(".mainBodyContent")
     .style("display", "flex")
@@ -200,3 +199,16 @@ const legend = legendDiv.append("div").attr("class", "legend");
     legendItem.append("span").text(category);
   });
 }
+
+
+function showContent(){
+  const btn = document.querySelector('.btnDraw')
+  btn.textContent = "Generate the website";
+  btn.style.backgroundColor = "red"
+  btn.addEventListener('click', () => {
+    draw();
+    console.log("Button was clicked");
+    btn.remove();
+  });
+}
+showContent()
