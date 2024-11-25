@@ -101,48 +101,50 @@ function onCheckboxChange(e){
 
 //This is layout function
 function initializeLayout(){
+
   const SVG_ = 800;
   const SVG_HEIGHT = 800;
   const MARGIN = 80; 
 
-const parent = d3.select('.mainVizContent')
-
+  const parent = d3.select('.mainVizContent')
   const filterMenu = d3.select('.legend')
   filterMenu.append('div')
     .attr('class',)
-//legend for the first books and categories
-const legendDiv = d3.select('.legend')
-const legend = legendDiv.append("div").attr("class", "legend");
 
-colorScale = d3.scaleOrdinal(["#6e40aa","#bf3caf","#fe4b83","#ff7847","#e2b72f","#aff05b","#52f667","#1ddfa3","#23abd8","#4c6edb","#6e40aa"]);
+  //legend for the first books and categories
+  const legendDiv = d3.select('.legend')
+  const legend = legendDiv.append("div").attr("class", "legend");
 
-Object.keys(categories).forEach((category, index) => {
-  categoryColors[category] = colorScale(index);
-});
-console.log("This is each category color",categoryColors);
+  colorScale = d3.scaleOrdinal(["#6e40aa","#bf3caf","#fe4b83","#ff7847","#e2b72f","#aff05b","#52f667","#1ddfa3","#23abd8","#4c6edb","#6e40aa"]);
+
+  Object.keys(categories).forEach((category, index) => {
+    categoryColors[category] = colorScale(index);
+  });
+  console.log("This is each category color",categoryColors);
 
 
-Object.entries(categoryColors).forEach(([category, color]) => {
-const legendItem = legend.append("div").attr("class", "legend-item")
-  .style("display", "flex")
-  .style("align-items", "center")
-  .style("margin-bottom", "5px");
+  Object.entries(categoryColors).forEach(([category, color]) => {
+  const legendItem = legend.append("div").attr("class", "legend-item")
+    .style("display", "flex")
+    .style("align-items", "center")
+    .style("margin-bottom", "5px");
 
-legendItem.append("div")
-  .style("width", "12px")
-  .style("height", "12px")
-  .style("background-color", color)
-  .style('border-radius','20px')
-  .style("margin-right", "5px");
+  legendItem.append("div")
+    .style("width", "12px")
+    .style("height", "12px")
+    .style("background-color", color)
+    .style('border-radius','20px')
+    .style("margin-right", "5px");
 
-legendItem.append("span").text(category).attr('class','filters');
-});
+  legendItem.append("span").text(category).attr('class','filters');
+  });
 }
 
 function draw(){
   const filteredData = state.data
   .filter(d => state.filters.checked.indexOf(d[BOOK]>-1));
   
+
   const checkRow = d3 
     .select('.filters')
     .selectAll('.check-row')
@@ -162,9 +164,7 @@ function draw(){
   //----------------------------------------
 }
 
-
-
-async function dataProcessing(){
+async function dataProcessing() {
 
 const topics_category = await d3.json("./topics_3.json");
 const categorizedTopics = {};
@@ -290,15 +290,5 @@ const legend = legendDiv.append("div").attr("class", "legend");
   });
 }
 
-function showContent(){
-  const btn = document.querySelector('.btnDraw')
-  btn.textContent = "Generate the website";
-  btn.style.backgroundColor = "red"
-  btn.addEventListener('click', () => {
-    draw();
-    console.log("Button was clicked");
-    btn.remove();
-  });
-}
 
 dataLoad()

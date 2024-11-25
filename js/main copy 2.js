@@ -81,7 +81,7 @@
   const barWidth = 40;
   const barHeight = 60;
 
-  const mainContainer = d3.select(".mainBodyContent")
+  const mainContainer = d3.select(".mainVizContent")
     .style("display", "flex")
     .style("flex-wrap", "wrap")
     .style("gap", "5px");
@@ -105,7 +105,7 @@
     const totalTopics = Object.values(topicCounts).reduce((a, b) => a + b, 0);
 
     const div = mainContainer.append("div").attr("class", "bar-container");
-    // div.append("p").text(name);
+    div.append("p").text(name);
 
     const svg = div.append("svg")
       .attr("width", barWidth)
