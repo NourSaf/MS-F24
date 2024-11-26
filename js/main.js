@@ -70,7 +70,7 @@ function setState(nextState) {
 }
 
 function onCheckboxChange(e){
-
+  
   console.log("This is target Name", e.target.name);
   const index = state.filters.checked.indexOf(d.target.name)
   const isBoxChecked = index > -1;
