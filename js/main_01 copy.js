@@ -17,7 +17,7 @@ let activeCategories = new Set(Object.keys(categories));
 async function initialize() {
     createLayout();
     try {
-        const rawData = await d3.json('/myData.json');
+        const rawData = await d3.json('./myData.json');
         console.log(rawData)
         allData = processData(rawData);
         updateVisualization();
