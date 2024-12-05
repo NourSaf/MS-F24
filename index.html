@@ -14,10 +14,7 @@
 <body>
   <div class="load">
     <h1 class="loading-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
-    <div class="how-it-work">
-      <h2> How to read the visualisation </h2>
-      <img class="explain-img" src="./Group 67 (3).png" alt="">
-    </div>
+    
     <button class="explore-btn">Explore</button>
   </div>
   <div class="visualization">
@@ -37,23 +34,21 @@
         document.addEventListener('DOMContentLoaded', () => {
             const title = document.querySelector('.loading-title');
             const exploreBtn = document.querySelector('.explore-btn');
-            const howItWork = document.querySelector('.how-it-work');
             const visualization = document.querySelector('.visualization');
 
             gsap.to(title, {duration: 1, opacity: 1, y: -20});
-            gsap.to(howItWork, {duration: 1, opacity: 1, y: -20, delay: 0.1});
             gsap.to(exploreBtn, {duration: 1, opacity: 1, y: -20, delay: 0.5});
 
             exploreBtn.addEventListener('click', () => {
-            gsap.to([title, exploreBtn, howItWork], {
-            duration: 0.5,
-            opacity: 0,
-            y: -50,
-            onComplete: () => {
-              document.querySelector('.load').remove();
-            }
-          });
-          gsap.to(visualization, {duration: 0.5, display: 'block', opacity: 1, y: -20, delay: 0.5});
+                gsap.to([title, exploreBtn], {
+                  duration: 0.5,
+                  opacity: 0,
+                  y: -50,
+                  onComplete: () => {
+                    document.querySelector('.load').remove();
+                  }
+                });
+                gsap.to(visualization, {duration: 0.5, display: 'block', opacity: 1, y: -20, delay: 0.5});
             });
         });
     </script>

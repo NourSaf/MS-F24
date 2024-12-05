@@ -60,13 +60,14 @@ h1 {
   padding: 10px 20px;
   font-size: 1.2rem;
   width: 200px;
-  background-color: #6e7fff;
+  background-color: #000000;
   color: white;
   border: none;
   border-radius: 50px;
   cursor: pointer;
   opacity: 0;
   align-self: center;
+  margin-top: 10px;
 }
 .visualization {
   display: none;
@@ -125,4 +126,12 @@ h1 {
 .explain-img{
   width: 1000px;
 
+}
+
+.paragraph-title{
+  margin: 0 auto;
+  max-width: 900px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
