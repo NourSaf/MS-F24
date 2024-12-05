@@ -82,7 +82,15 @@ function createStackedBar(container, topicCounts, bookInfo) {
     const svg = container.append("svg")
         .attr("width", barWidth)
         .attr("height", barHeight)
-        .style("padding", "2px");
+        .style("padding", "2px")
+        .on("mouseover", function() {
+          d3.select(this).style("opacity", 0.5)
+          .style('cursor', 'pointer');
+      })
+      .on("mouseout", function() {
+        d3.select(this).style("opacity", 1);
+    });
+      
 
     const series = stack([topicCounts]);
 
@@ -105,17 +113,24 @@ function createStackedBar(container, topicCounts, bookInfo) {
         .attr("width", barWidth)
         .on("mouseover", function(event) {
             d3.select(".tooltip")
-                .style("left", `${event.pageX}px`)
-                .style("top", `${event.pageY}px`)
-                .style("opacity", 1)
-                .html(`
-                    <div><strong>Title:</strong> ${bookInfo.name.toLowerCase()}</div>
-                    <div><strong>Author:</strong> ${bookInfo.authorName}</div>
-                    <div><strong>Year:</strong> ${bookInfo.bookYear}</div>
-                    <div><strong>Language:</strong> ${bookInfo.language}</div>
-                `);
-        });
-      }
+              .style("left", `${event.pageX}px`)
+              .style("top", `${event.pageY}px`)
+              .style("opacity", 1)
+              .html(`
+              <div><strong>Title:</strong> ${bookInfo.name.toLowerCase()}</div>
+              <div><strong>Author:</strong> ${bookInfo.authorName}</div>
+              <div><strong>Year:</strong> ${bookInfo.bookYear}</div>
+              <div><strong>Language:</strong> ${bookInfo.language}</div>
+              <ul>
+                ${Object.entries(topicCounts).map(([category, count]) => `<li style="color: ${categoryColors[category]}">${category}: ${count}</li>`).join('')}
+              </ul>
+              `);
+        })
+
+        .on("mouseout", function() {
+            d3.select(this).style("opacity", 1);
+      });
+    }
 function createLayout() {
     const legend = d3.select('.legend');
 
