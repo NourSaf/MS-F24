@@ -36,7 +36,6 @@ body {
 .viz-contaienr{
   height: 100%;
   overflow: scroll;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.337); */
 }
 
 .legend-container {
@@ -239,3 +238,6 @@ h1 {
 
 }
 
+.footer{
+  padding: 20px;
+}
