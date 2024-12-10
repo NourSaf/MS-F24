@@ -13,7 +13,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+ 
 .load{
   height: 97vh;
   display: flex;
