@@ -184,9 +184,9 @@ function updateCategoryBarChart() {
       count: allData.reduce((sum, { topicCounts }) => sum + (topicCounts[category] || 0), 0)
   }));
 
-  const margin = { top: 20, right: 20, bottom: 70, left: 40 };
+  const margin = { top: 20, right: 20, bottom: 20, left: 40 };
   const width = 400 - margin.left - margin.right;
-  const height = 300 - margin.top - margin.bottom;
+  const height = 200 - margin.top - margin.bottom;
 
   d3.select("#category-bar-chart").selectAll("*").remove();
 
@@ -216,7 +216,6 @@ function updateCategoryBarChart() {
       .attr("y", d => y(d.count))
       .attr("height", d => height - y(d.count))
       .attr("fill", d => categoryColors[d.category])
-      
       .on("mouseover", function(event, d) {
         d3.select(this).style('opacity',0.5).style('cursor', 'crosshair')
         d3.select(".tooltip")
@@ -236,12 +235,12 @@ function updateCategoryBarChart() {
   svg.append("g")
       .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(x))
-      .selectAll("text")
-      .attr("transform", "rotate(-45)")
-      .style("text-anchor", "end");
+      .select('.domain').remove()
+      svg.selectAll(".tick ").remove();
 
   svg.append("g")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y).ticks(4).tickSize(-width).tickFormat(d3.format("d"))).style('opacity',0.5)
+      .select('.domain').remove()
 }
 
 function updateTopicWordsBarChart() {
@@ -268,9 +267,9 @@ function updateTopicWordsBarChart() {
         .sort((a, b) => b[1] - a[1])
         .slice(0, 30);
 
-    const margin = { top: 20, right: 20, bottom: 70, left: 40 };
+    const margin = { top: 20, right: 20, bottom: 20, left: 40 };
     const width = 400 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const height = 200 - margin.top - margin.bottom;
 
     d3.select("#topic-words-bar-chart").selectAll("*").remove();
 
@@ -324,20 +323,15 @@ function updateTopicWordsBarChart() {
             d3.select(".tooltip").style("opacity", 0);
         });
 
-    svg.append("g")
+        svg.append("g")
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x))
-        .selectAll("text")
-        .attr("transform", "rotate(-45)")
-        .style("text-anchor", "end");
-
+        .select('.domain').remove()
+        svg.selectAll(".tick ").remove();
+  
     svg.append("g")
-        .call(d3.axisLeft(y));
-
-    svg.append("text")
-        .attr("x", width / 2)
-        .attr("y", height + margin.bottom - 10)
-        .attr("text-anchor", "middle")
+        .call(d3.axisLeft(y).ticks(4).tickSize(-width).tickFormat(d3.format("d"))).style('opacity',0.5)
+        .select('.domain').remove()
 }
 
 
