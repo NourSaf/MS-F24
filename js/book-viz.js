@@ -141,22 +141,17 @@ function createLayout() {
         const legendItem = legend.append("div")
             .attr("class", "legend-item");
 
-        legendItem.append("input")
-            .attr("type", "checkbox")
-            .attr("id", `checkbox-${category}`)
-            .property("checked", true)
-            .on("change", function () {
-                toggleCategory(category, this.checked);
-            });
-
-        legendItem.append("div")
-            .attr("class", "custom-checkbox")
-            .style("background-color", color)
-            .style('border-radius', '20px');
-
-        legendItem.append("label")
+            legendItem.append("label")
+            .attr("class", "styled-checkbox")
             .attr("for", `checkbox-${category}`)
-            .text(category);
+            .html(`
+                <input type="checkbox" id="checkbox-${category}" checked>
+                <span class="checkmark" style="background-color: ${color};"></span>
+                <span class="checkbox-label">${category}</span>
+            `)
+            .on("change", function () {
+                toggleCategory(category, this.querySelector('input').checked);
+            });
     });
 
 }

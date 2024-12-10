@@ -134,8 +134,8 @@ h1 {
 }
 
 .custom-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
   appearance: none;
   background-color: #fff;
@@ -240,4 +240,62 @@ h1 {
 
 .footer{
   padding: 40px;
+}
+
+.styled-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+.styled-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.styled-checkbox .checkmark {
+  position: relative;
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 4px;
+  /* border: 2px solid #ccc; */
+  display: inline-block;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.styled-checkbox input:checked ~ .checkmark {
+  background-color: var(--color, #4caf50); /* Default green, overridden by inline style */
+  border-color: var(--color, #4caf50);
+}
+
+.styled-checkbox .checkbox-label {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: monospace;
+}
+
+.styled-checkbox input:focus ~ .checkmark {
+  outline: 1px solid #af4c4c;
+  outline-offset: 2px;
+}
+
+.styled-checkbox .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: rgb(222, 222, 222);
+  border-radius: 12px;
+}
+
+.styled-checkbox input:checked ~ .checkmark::after {
+  display: block;
 }
