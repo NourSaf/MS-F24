@@ -14,41 +14,67 @@
 <body>
   <div class="load">
     <h1 class="loading-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
-    
-    <button class="explore-btn">Explore</button>
+    <div class="paragraph-landing">
+      Books, as cultural artifacts, carry rich narratives through their topics and metadata.  This visualization explores the political books in the Smithsonian Libraries, delving into their metadata to uncover how political themes intersect with other topics within the collection.
+    </div>
+    <button class="explore-btn">EXPLORE</button>
+  </div>
+
   </div>
   <div class="visualization">
-    <!-- <div class="visualization"> -->
-      <div class="container">
+      <div class="containers-wraper">
+        <div class="container">
+          <div class="title-container">
             <h1 class="viz-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
-          <div class="legend-container">
-            <div class="legend"></div>
+            <p>The Smithsonian plotical books visual exploration</p>
           </div>
-          <div class="viz-contaienr">
-            <div class="mainVizContent"></div>
+            <div class="legend-container">
+              <div class="legend"></div>
+            </div>
+            <div class="viz-contaienr">
+              <div class="mainVizContent"></div>
+            </div>
+          
           </div>
-          <div class="tooltip"></div>
+
+          <div class="container-right">
+            <div class="charts">
+              <div id="category-bar-chart"> Words count in each category </div>
+              <div id="topic-words-bar-chart"> Top 30 categories accorss the displayed books</div>
+              <div class="tool-container">
+                <div class="tooltip"> 
+                  Hover on content to reveal information
+                </div>
+              </div>
+
+            </div>
         </div>
       </div>
+</div>
+
       <script>
         document.addEventListener('DOMContentLoaded', () => {
             const title = document.querySelector('.loading-title');
+            const paragraphLanding = document.querySelector('.paragraph-landing');
             const exploreBtn = document.querySelector('.explore-btn');
             const visualization = document.querySelector('.visualization');
+            const visualizationHeader = document.querySelector('.visualization-header');
 
             gsap.to(title, {duration: 1, opacity: 1, y: -20});
-            gsap.to(exploreBtn, {duration: 1, opacity: 1, y: -20, delay: 0.5});
+            gsap.to(paragraphLanding, {duration: 1, opacity: 1, y: -20, delay: 0.3});
+            gsap.to(exploreBtn, {duration: 1, opacity: 1, y: -20, delay: 0.6});
 
             exploreBtn.addEventListener('click', () => {
-                gsap.to([title, exploreBtn], {
-                  duration: 0.5,
-                  opacity: 0,
-                  y: -50,
-                  onComplete: () => {
-                    document.querySelector('.load').remove();
-                  }
-                });
-                gsap.to(visualization, {duration: 0.5, display: 'block', opacity: 1, y: -20, delay: 0.5});
+          gsap.to([title, paragraphLanding, exploreBtn], {
+            duration: 0.5,
+            opacity: 0,
+            y: -40,
+            onComplete: () => {
+              document.querySelector('.load').remove();
+            }
+          });
+          gsap.to(visualization, {duration: 0.3, display: 'block', opacity: 1, y: -20, delay: 0.5});
+          gsap.to(visualizationHeader, {duration: 0.3, display: 'block', opacity: 1, y: -20, delay: 0.5});
             });
         });
     </script>

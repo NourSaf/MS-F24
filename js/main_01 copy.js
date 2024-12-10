@@ -21,6 +21,10 @@ async function initialize() {
         console.log(rawData)
         allData = processData(rawData);
         updateVisualization();
+        updateCategoryBarChart();
+        updateTopicWordsBarChart(); // Add this line
+
+
     } catch (error) {
         console.error("Error loading or processing data:", error);
     }
@@ -62,6 +66,9 @@ function updateVisualization() {
         const div = mainContainer.append("div").attr("class", "bar-container");
         createStackedBar(div, topicCounts, item);
     });
+    updateCategoryBarChart()
+    updateTopicWordsBarChart(); 
+
 }
 
 function createStackedBar(container, topicCounts, bookInfo) {
@@ -85,7 +92,7 @@ function createStackedBar(container, topicCounts, bookInfo) {
         .style("padding", "2px")
         .on("mouseover", function() {
           d3.select(this).style("opacity", 0.5)
-          .style('cursor', 'pointer');
+          .style('cursor', 'crosshair');
       })
       .on("mouseout", function() {
         d3.select(this).style("opacity", 1);
@@ -121,9 +128,6 @@ function createStackedBar(container, topicCounts, bookInfo) {
               <div><strong>Author:</strong> ${bookInfo.authorName}</div>
               <div><strong>Year:</strong> ${bookInfo.bookYear}</div>
               <div><strong>Language:</strong> ${bookInfo.language}</div>
-              <ul>
-                ${Object.entries(topicCounts).map(([category, count]) => `<li style="color: ${categoryColors[category]}">${category}: ${count}</li>`).join('')}
-              </ul>
               `);
         })
 
@@ -155,6 +159,7 @@ function createLayout() {
             .attr("for", `checkbox-${category}`)
             .text(category);
     });
+
 }
 
 document.addEventListener("click", function(event) {
@@ -170,6 +175,170 @@ function toggleCategory(category, isActive) {
         activeCategories.delete(category);
     }
     updateVisualization();
+    updateCategoryBarChart();
 }
+
+function updateCategoryBarChart() {
+  const categoryData = Array.from(activeCategories).map(category => ({
+      category,
+      count: allData.reduce((sum, { topicCounts }) => sum + (topicCounts[category] || 0), 0)
+  }));
+
+  const margin = { top: 20, right: 20, bottom: 70, left: 40 };
+  const width = 400 - margin.left - margin.right;
+  const height = 300 - margin.top - margin.bottom;
+
+  d3.select("#category-bar-chart").selectAll("*").remove();
+
+  const svg = d3.select("#category-bar-chart")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  const x = d3.scaleBand()
+      .range([0, width])
+      .padding(0.1);
+
+  const y = d3.scaleLinear()
+      .range([height, 0]);
+
+  x.domain(categoryData.map(d => d.category));
+  y.domain([0, d3.max(categoryData, d => d.count)]);
+
+  svg.selectAll(".bar")
+      .data(categoryData)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", d => x(d.category))
+      .attr("width", x.bandwidth())
+      .attr("y", d => y(d.count))
+      .attr("height", d => height - y(d.count))
+      .attr("fill", d => categoryColors[d.category])
+      
+      .on("mouseover", function(event, d) {
+        d3.select(this).style('opacity',0.5).style('cursor', 'crosshair')
+        d3.select(".tooltip")
+          .style("left", `${event.pageX}px`)
+          .style("top", `${event.pageY}px`)
+          .style("opacity", 1)
+          .html(`
+          <div><strong>Category:</strong> ${d.category}</div>
+          <div><strong>Count:</strong> ${d.count}</div>
+          `);
+      })
+      .on("mouseout", function() {
+        d3.select(this).style('opacity',1).style('cursor', 'crosshair')       
+        d3.select(".tooltip").style("opacity", 0);
+      });
+
+  svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x))
+      .selectAll("text")
+      .attr("transform", "rotate(-45)")
+      .style("text-anchor", "end");
+
+  svg.append("g")
+      .call(d3.axisLeft(y));
+}
+
+function updateTopicWordsBarChart() {
+    const wordCounts = {};
+    
+    // Filter data based on active categories
+    const filteredData = allData.filter(({ topicCounts }) => 
+        Object.keys(topicCounts).some(category => activeCategories.has(category))
+    );
+
+    // Count words from filtered data
+    filteredData.forEach(({ item }) => {
+        item.topic.forEach(topic => {
+            topic.toLowerCase().split(' ').forEach(word => {
+                if (word.length > 4) { // Only count words longer than 4 characters
+                    wordCounts[word] = (wordCounts[word] || 0) + 1;
+                }
+            });
+        });
+    });
+
+    // Sort and take the top 50 words
+    const sortedWords = Object.entries(wordCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 30);
+
+    const margin = { top: 20, right: 20, bottom: 70, left: 40 };
+    const width = 400 - margin.left - margin.right;
+    const height = 300 - margin.top - margin.bottom;
+
+    d3.select("#topic-words-bar-chart").selectAll("*").remove();
+
+    const svg = d3.select("#topic-words-bar-chart")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleBand()
+        .range([0, width])
+        .padding(0.1);
+
+    const y = d3.scaleLinear()
+        .range([height, 0]);
+
+    x.domain(sortedWords.map(d => d[0]));
+    y.domain([0, d3.max(sortedWords, d => d[1])]);
+
+    svg.selectAll(".bar")
+        .data(sortedWords)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", d => x(d[0]))
+        .attr("width", x.bandwidth())
+        .attr("y", d => y(d[1]))
+        .attr("height", d => height - y(d[1]))
+        .attr("fill", d => {
+            // Assign color based on category if word belongs to it
+            for (const [category, keywords] of Object.entries(categories)) {
+                if (keywords.includes(d[0])) {
+                    return categoryColors[category];
+                }
+            }
+            return "#4c6edb"; // Default color if word doesn't match any category
+        })
+        .on("mouseover", function (event, d) {
+            d3.select(this).style("opacity", 0.5).style("cursor", "crosshair");
+            d3.select(".tooltip")
+                .style("left", `${event.pageX + 10}px`)
+                .style("top", `${event.pageY + 10}px`)
+                .style("opacity", 1)
+                .html(`
+                    <div><strong>Word:</strong> ${d[0]}</div>
+                    <div><strong>Count:</strong> ${d[1]}</div>
+                `);
+        })
+        .on("mouseout", function () {
+            d3.select(this).style("opacity", 1);
+            d3.select(".tooltip").style("opacity", 0);
+        });
+
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "rotate(-45)")
+        .style("text-anchor", "end");
+
+    svg.append("g")
+        .call(d3.axisLeft(y));
+
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+}
+
 
 initialize();

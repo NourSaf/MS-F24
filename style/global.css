@@ -2,84 +2,132 @@ body {
   font-family: monospace;
   margin: 0;
   padding: 20px;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(30, 27, 31);
   color: white;
   font-family: monospace;
-  overflow: hidden;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  
+  display: flex;
+  flex-direction: column;
 }
+
 .load{
+  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+
 .container {
   max-width: 1400px;
-  height: 840px;
+  height: 90%;
   overflow: scroll;
   margin: 0 auto;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(30, 27, 31);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.337);
   padding: 20px;
-  /* text-align: center; */
-
+  margin-top: 40px;
 }
+
 .viz-contaienr{
-  height: 470px;
+  height: 100%;
   overflow: scroll;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.337);
-
 }
+
 .legend-container {
   max-width: 1400px;
   height: auto;
   margin: 6px auto;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(30, 27, 31);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.337);
   padding: 10px 20px 10px 20px;
 }
+
 h1 {
   color: #ffffff;
   text-align: center;
   font-size: 3rem;
   opacity: 0;
 }
-.viz-title{
+
+.viz-title {
   opacity: 1;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.title-container{
+  justify-content: flex-start;
+  background-color: rgb(30, 27, 31);
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 1;
+  max-width: 1400px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.249);
+}
+
+.visualization-header{
+  display: none;
+  max-width: 1400px;
+  margin: 24px auto;
+}
+
+.flex-container{
+  max-width: 1400px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
 }
 
 .explore-btn {
   padding: 10px 20px;
   font-size: 1.2rem;
+  font-family: monospace;
   width: 200px;
-  background-color: #000000;
-  color: white;
+  background-color: #e8e8e8;
+  color: #1F1B1F;
   border: none;
   border-radius: 50px;
-  cursor: pointer;
+  cursor: crosshair;
   opacity: 0;
   align-self: center;
   margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(94, 94, 94, 0.1);
+  transition: transform 0.2s, box-shadow 0.5s;
 }
+
+.explore-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 12px rgba(255, 246, 246, 0.2);
+}
+
 .visualization {
   display: none;
-  margin-top: 100px;
   height: 100vh;
+}
+
+.containers-wraper{
+  display: flex;
+  flex: row;
+  height: 100vh;
+  margin-left: 20px;
 }
 
 .legend {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
+
 .legend-item {
   display: flex;
   align-items: center;
@@ -87,45 +135,49 @@ h1 {
 }
 
 .legend-item :hover{
-  cursor: pointer;
+  cursor: crosshair;
 }
+
 .custom-checkbox {
   width: 20px;
   height: 20px;
-  /* border: 2px solid #ddd; */
   margin-right: 5px;
 }
+
 .mainVizContent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .bar-container {
   margin: 5px;
 }
+
+.tool-container{
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.249);
+  margin: 10px auto;      
+}
+
 .tooltip {
   background-color:272727;
   display: flex;
-  
   flex-direction: column;
   align-items: flex-start;
-
   border-radius: 4px;
-  padding: 10px;
+  padding: 20px;
   font-size: 14px;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
   max-width: 1400px;
-  margin: 10px auto;      
-  padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.249);
-
+  text-align: left;
 }
 
 .explain-img{
   width: 1000px;
-
 }
 
 .paragraph-title{
@@ -134,4 +186,34 @@ h1 {
   font-size: 1rem;
   margin-bottom: 20px;
   text-align: center;
+}
+
+.charts{
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#category-bar-chart{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.249);
+  margin-bottom: 20px;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+#topic-words-bar-chart{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.249);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.paragraph-landing{
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.6em;
+  opacity: 0;
+
 }

@@ -138,19 +138,19 @@ const legend = legendDiv.append("div").attr("class", "legend");
 
 loadData();
 
-async function wordsCategoriesCounter(){
-  const topics_category = await d3.json("./topics_3.json");
-  const categorizedTopics = {};
-  topics_category.forEach(({ word, count }) => {
-    for (const [category, keywords] of Object.entries(categories)) {
-      if (keywords.includes(word)) {
-        if (!categorizedTopics[category]) {
-          categorizedTopics[category] = [];
-        }
-        categorizedTopics[category].push({ word, count });
-        break;
-      }
-    }
-  });
-  console.log('this is my data Topic Categories',categorizedTopics);
-}
+// async function wordsCategoriesCounter(){
+//   const topics_category = await d3.json("./topics_3.json");
+//   const categorizedTopics = {};
+//   topics_category.forEach(({ word, count }) => {
+//     for (const [category, keywords] of Object.entries(categories)) {
+//       if (keywords.includes(word)) {
+//         if (!categorizedTopics[category]) {
+//           categorizedTopics[category] = [];
+//         }
+//         categorizedTopics[category].push({ word, count });
+//         break;
+//       }
+//     }
+//   });
+//   console.log('this is my data Topic Categories',categorizedTopics);
+// }
