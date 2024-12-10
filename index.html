@@ -1,89 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politics in the Smithsonian Libraries</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" href="../MS-F24/style/global.css">
-    <link rel="stylesheet" href="./style/global.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WITHIN POLITICS</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="../MS-F24/style/global.css">
+  <link rel="stylesheet" href="./style/global.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
+
 <body>
-  <!-- <div id="3d-container" style="width: 100%; height: 50vh; position: absolute;" ></div> -->
+  <div id="background-scene"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; opacity: 0.5;">
+  </div>
   <div class="load">
-    <h1 class="loading-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
+    <h1 class="loading-title">WITHIN POLITICS</h1>
     <div class="paragraph-landing">
-      Books, as cultural artifacts, carry rich narratives through their topics and metadata.  This visualization explores the political books in the Smithsonian Libraries, delving into their metadata to uncover how political themes intersect with other topics within the collection.
+      Books, as cultural artifacts, carry rich narratives through their topics and metadata. This visualization explores
+      the political books in the Smithsonian Libraries, delving into their metadata to uncover how political themes
+      intersect with other topics within the collection.
     </div>
     <button class="explore-btn">EXPLORE</button>
   </div>
-
-  </div>
   <div class="visualization">
-      <div class="containers-wraper">
-        <div class="container">
-          <div class="title-container">
-            <h1 class="viz-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
-            <p>The Smithsonian political books visual exploration</p>
-          </div>
-            <div class="legend-container">
-              <div class="legend"></div>
-            </div>
-            <div class="viz-contaienr">
-              <div class="mainVizContent"></div>
-            </div>
-          
-          </div>
-
-          <div class="container-right">
-            <div class="charts">
-              <div id="category-bar-chart"> Words count in each category </div>
-              <div id="topic-words-bar-chart"> Top 30 categories accorss the displayed books</div>
-              <div class="tool-container">
-                <div class="tooltip"> 
-                  Hover on content to reveal information
-                </div>
-              </div>
-
-            </div>
+    <div class="containers-wraper">
+      <div class="container">
+        <div class="title-container">
+          <h1 class="viz-title">POLITICS IN THE SMITHSONIAN LIBRARIES</h1>
+          <p>The Smithsonian political books visual exploration</p>
+        </div>
+        <div class="legend-container">
+          <div class="legend"></div>
+        </div>
+        <div class="viz-contaienr">
+          <div class="mainVizContent"></div>
         </div>
       </div>
-</div>
-
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const title = document.querySelector('.loading-title');
-            const paragraphLanding = document.querySelector('.paragraph-landing');
-            const exploreBtn = document.querySelector('.explore-btn');
-            const visualization = document.querySelector('.visualization');
-            const visualizationHeader = document.querySelector('.visualization-header');
-
-            gsap.to(title, {duration: 1, opacity: 1, y: -20});
-            gsap.to(paragraphLanding, {duration: 1, opacity: 1, y: -20, delay: 0.3});
-            gsap.to(exploreBtn, {duration: 1, opacity: 1, y: -20, delay: 0.6});
-
-            exploreBtn.addEventListener('click', () => {
-          gsap.to([title, paragraphLanding, exploreBtn], {
-            duration: 0.5,
-            opacity: 0,
-            y: -40,
-            onComplete: () => {
-              document.querySelector('.load').remove();
-            }
-          });
-          gsap.to(visualization, {duration: 0.3, display: 'block', opacity: 1, y: -20, delay: 0.5});
-          gsap.to(visualizationHeader, {duration: 0.3, display: 'block', opacity: 1, y: -20, delay: 0.5});
-            });
-        });
-    </script>
-    <script src="./js/main_01 copy.js" type="module" async>
-    </script>
-    
-    
+      <div class="container-right">
+        <div class="charts">
+          <div id="category-bar-chart"> Words count in each category </div>
+          <div id="topic-words-bar-chart"> Top 30 categories accorss the displayed books</div>
+          <div class="tool-container">
+            <div class="tooltip">
+              Hover on content to reveal information
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/book-viz.js" type="module" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134/examples/js/loaders/OBJLoader.js"></script>
+  <script src="./js/book3d.js"></script>
+  <script src="./js/sceanLoad.js"></script>
 </body>
 </html>

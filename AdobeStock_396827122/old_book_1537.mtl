@@ -1,0 +1,68 @@
+newmtl old_book_1537_bookmark_MatSG_Mat
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal old_book_1537/old_book_1537_bookmark_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness old_book_1537/old_book_1537_bookmark_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm old_book_1537/old_book_1537_bookmark_Mat_metallic.png
+Ns 16
+map_Kd old_book_1537/old_book_1537_bookmark_Mat_baseColor.png
+newmtl old_book_1537_cover_MatSG_Mat
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal old_book_1537/old_book_1537_cover_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness old_book_1537/old_book_1537_cover_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm old_book_1537/old_book_1537_cover_Mat_metallic.png
+Ns 16
+map_Kd old_book_1537/old_book_1537_cover_Mat_baseColor.png
+newmtl old_book_1537_paper_MatSG_Mat
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal old_book_1537/old_book_1537_paper_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness old_book_1537/old_book_1537_paper_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm old_book_1537/old_book_1537_paper_Mat_metallic.png
+Ns 16
+map_Kd old_book_1537/old_book_1537_paper_Mat_baseColor.png
+newmtl old_book_1537_cover_cover_MatSG_Mat
+Ni 1.6
+Ka 0 0 0
+d 1.0
+Ke 0.0
+Kd 0 0 0
+adobe_map_normal old_book_1537/old_book_1537_cover_Mat_normal.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness old_book_1537/old_book_1537_cover_Mat_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 1.0
+map_Pm old_book_1537/old_book_1537_cover_Mat_metallic.png
+Ns 16
+map_Kd old_book_1537/old_book_1537_cover_Mat_baseColor.png
